@@ -11,7 +11,7 @@ export default rootReducer;
 
 
 
-// // TC's syntax
+// // TC's syntax without combine reducer
 // import { combineReducers } from 'redux';
 // import catsReducer from './cats_reducer'
 // import thunk from 'redux-thunk';

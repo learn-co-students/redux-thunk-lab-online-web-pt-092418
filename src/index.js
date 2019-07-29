@@ -19,7 +19,7 @@ ReactDOM.render(
 
 
 
-// // TC syntax
+// // TC syntax without combine reducer
 // import React from 'react';
 // import ReactDOM from 'react-dom'
 // import App from './App'
