@@ -4,9 +4,9 @@ class CatList extends Component {
 
   render () {
     // debugger
-    const list = this.props.catPics.map(cat => <li> <img src={cat.url}/ ></li> )
+    const list = this.props.catPics.map((cat, index) => <img  key={index} src={cat.url} height="20%" width="20%" alt="catImage" /> )
     return (
-      <div>{this.list}</div>
+      <div>{list}</div>
     )
   }
 
