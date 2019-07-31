@@ -20,7 +20,7 @@ class App extends Component {
             <Navbar.Brand>
               <a href="#">CatBook</a>
               <hr></hr>
-              {this.props.loading ? '...loding' : <CatList catPics={this.props.catPics} />}
+              {this.props.loading ? '...loading' : <CatList catPics={this.props.catPics} />}
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
