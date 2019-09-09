@@ -6,13 +6,17 @@ class App extends Component {
   componentDidMount(){
     
   }
+  
   render() {
+    const catPicture = this.props.pictures.map(pictures => <li key={pictures.id}>{pictures}</li>)
     return (
       <div className="App">
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">CatBook</a>
+              <a href="#">CatBook
+              {catPicture}
+              </a>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
@@ -23,5 +27,10 @@ class App extends Component {
 
 mapStateToProps = ({pictures}) => ({ pictures})
 
-export default connect(mapStateToProps, null)(App);
+mapDispatchToProps = dispatch => ({
+  fetchCats: cats => dispatch({ type: 'FETCH_CAT', pictures: cats })
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
