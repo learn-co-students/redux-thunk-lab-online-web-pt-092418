@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-export function fetchCat(){
+export function fetchCats(){
     return (dispatch => {
         dispatch({type: 'LOADING_CATS'});
         return fetch("http://localhost:4000")

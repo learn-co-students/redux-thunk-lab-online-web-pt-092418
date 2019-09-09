@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Navbar} from 'react-bootstrap'
+import {Navbar} from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class App extends Component {   
   componentDidMount(){
@@ -20,7 +21,7 @@ class App extends Component {
   }
 }
 
+mapStateToProps = ({pictures}) => ({ pictures})
 
-
-export default App
+export default connect(mapStateToProps, null)(App);
 
