@@ -1,4 +1,5 @@
 // import { bindActionCreators } from "redux";
+//  import fetchCats from './catActions';
 
 export default function catsReducer(state = {
     loading: false, 

@@ -4,18 +4,20 @@ import { connect } from 'react-redux';
 
 class App extends Component {   
   componentDidMount(){
-    
+    this.props.fetchCats()
   }
   
   render() {
-    const catPicture = this.props.pictures.map(pictures => <li key={pictures.id}>{pictures}</li>)
+    const catPicture = this.props.pictures.map(picture => <li key={picture.id}>{picture}</li>)
     return (
       <div className="App">
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="#">CatBook
-              {catPicture}
+              <img>
+              {catPicture}/>
+              </img>
               </a>
             </Navbar.Brand>
           </Navbar.Header>
@@ -25,9 +27,9 @@ class App extends Component {
   }
 }
 
-mapStateToProps = ({pictures}) => ({ pictures})
+const mapStateToProps = ({pictures}) => ({ pictures})
 
-mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   fetchCats: cats => dispatch({ type: 'FETCH_CAT', pictures: cats })
 })
 
