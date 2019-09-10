@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Navbar} from 'react-bootstrap';
 import { connect } from 'react-redux';
+import CatList from './CatList';
+import { fetchCats } from './actions/catActions';
 
 class App extends Component {   
   componentDidMount(){
@@ -8,30 +10,32 @@ class App extends Component {
   }
   
   render() {
-    const catPicture = this.props.pictures.map(picture => <li key={picture.id}>{picture}</li>)
     return (
       <div className="App">
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">CatBook
-              <img>
-              {catPicture}/>
-              </img>
-              </a>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
+        <CatList catPics={this.props.pictures}></CatList>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({pictures}) => ({ pictures})
+const mapStateToProps = state => {
+  console.log('yoyo');
+  return {
+    pictures: state.cats && state.cats.pictures
+  };
+}
 
-const mapDispatchToProps = dispatch => ({
-  fetchCats: cats => dispatch({ type: 'FETCH_CAT', pictures: cats })
-})
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCats: () => dispatch(fetchCats()) 
+  };
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

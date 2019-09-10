@@ -11,9 +11,11 @@ export default function catsReducer(state = {
                 }
             }
                 
-            case 'FETCH_CATS':{
+            case 'FETCH_CATS': {
                 return{
-                    ...state, pictures: action.pictures
+                    ...state,
+                    loading: false,
+                    pictures: action.payload
                 }
             }
               default:{
